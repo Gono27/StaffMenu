@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="StaffMenu:jar">
+    <output-path>$PROJECT_DIR$/../../../../Dev/asa</output-path>
+    <root id="archive" name="StaffMenu.jar">
+      <element id="module-output" name="StaffMenu" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,31 @@
+name: StaffMenu
+version: '${project.version}'
+main: org.gonito.staffmenu.StaffMenu
+api-version: 1.19
+authors: [Gonito27]
+description: Staff menu para minecraft
+commands:
+  gui:
+    description: Este comando abre la GUI del staff
+    usage: /<command>
+    aliases:
+      - sm
+  vanish:
+    description: Eliminate player from the view
+    usage: /<commands>
+    aliases:
+      - v
+  freeze:
+    description: Freeze players
+    usage: /<commands>
+    aliases:
+      - f
+  kick:
+    description: kick players
+    usage: /<commands>
+  ban:
+    description: ban players
+    usage: /<commands>
+  staffchat:
+    description: Chat for staff
+    usage: /<commands>
