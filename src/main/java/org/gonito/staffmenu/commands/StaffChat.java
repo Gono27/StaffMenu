@@ -9,10 +9,7 @@ import org.gonito.staffmenu.StaffMenu;
 
 public class StaffChat implements CommandExecutor {
     StaffMenu plugin;
-    public StaffChat(StaffMenu plugin){
-
-        this.plugin = plugin;
-    }
+    public StaffChat(StaffMenu plugin){this.plugin = plugin;}
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
         if(!(sender instanceof Player)){
@@ -25,7 +22,6 @@ public class StaffChat implements CommandExecutor {
             return false;
         }
         plugin.cM.joinChannel(p,"Staff Chat");
-
         return true;
     }
 }
