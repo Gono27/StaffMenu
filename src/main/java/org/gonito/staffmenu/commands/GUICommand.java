@@ -44,11 +44,13 @@ public class GUICommand implements CommandExecutor {
         ItemMeta vanishOnMeta = vanishOn.getItemMeta();
         ItemStack kickMenu = new ItemStack(Material.OAK_DOOR, 1);
         ItemMeta kickMenuMeta = kickMenu.getItemMeta();
+        ItemStack banIpMenu = new ItemStack(Material.TNT, 1);
+        ItemMeta banIpMenuMeta = kickMenu.getItemMeta();
 
         ArrayList<String> playerListLore = new ArrayList<>();
         playerListLore.add("List of the players online");
         ArrayList<String> banMenuLore = new ArrayList<>();
-        banMenuLore.add("Ban a player");
+        banMenuLore.add("Ban player");
         ArrayList<String> tpToPlayerLore = new ArrayList<>();
         tpToPlayerLore.add("Tp tp select player");
         ArrayList<String> vanishOffLore = new ArrayList<>();
@@ -56,7 +58,9 @@ public class GUICommand implements CommandExecutor {
         ArrayList<String> vanishOnLore = new ArrayList<>();
         vanishOnLore.add("Tp tp select player");
         ArrayList<String> kickMenuLore = new ArrayList<>();
-        kickMenuLore.add("Kick a player");
+        kickMenuLore.add("Kick player");
+        ArrayList<String> banIpMenuLore = new ArrayList<>();
+        banIpMenuLore.add("Ipban player");
 
         assert playerListMeta != null;
         playerListMeta.setDisplayName("Players List");
@@ -88,12 +92,16 @@ public class GUICommand implements CommandExecutor {
         kickMenuMeta.setDisplayName("Vanish enable");
         kickMenuMeta.setLore(kickMenuLore);
         kickMenu.setItemMeta(kickMenuMeta);
+        assert banIpMenuMeta != null;
+        banIpMenuMeta.setDisplayName("IpBan player");
+        banIpMenuMeta.setLore(banIpMenuLore);
+        banIpMenu.setItemMeta(banIpMenuMeta);
 
         if (plugin.vanished.contains(p)) {
-            gui.addItem(playerList, banMenu, tpToPlayer, vanishOn, kickMenu);
+            gui.addItem(playerList, banMenu, tpToPlayer, vanishOn, kickMenu, banIpMenu);
             p.closeInventory();
         } else {
-            gui.addItem(playerList, banMenu, tpToPlayer, vanishOff, kickMenu);
+            gui.addItem(playerList, banMenu, tpToPlayer, vanishOff, kickMenu, banIpMenu);
             p.closeInventory();
         }
         p.openInventory(gui);

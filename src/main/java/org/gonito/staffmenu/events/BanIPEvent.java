@@ -13,12 +13,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-public class BanEvent implements Listener {
+public class BanIPEvent implements Listener {
 
     private Player t;
     private String banReason;
@@ -29,9 +28,9 @@ public class BanEvent implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        Inventory gui = Bukkit.createInventory(p, 54, ChatColor.DARK_RED + "Ban Player Selector");
+        Inventory gui = Bukkit.createInventory(p, 54, ChatColor.DARK_RED + "BanIP Player Selector");
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.AQUA + "Staff Menu")) {
-            if (Objects.requireNonNull(e.getCurrentItem()).getType() == Material.BARRIER) {
+            if (Objects.requireNonNull(e.getCurrentItem()).getType() == Material.TNT) {
                 for (Player all : Bukkit.getOnlinePlayers()) {
                     String playersName = all.getName();
                     ArrayList<String> lore = new ArrayList<>();
@@ -56,7 +55,7 @@ public class BanEvent implements Listener {
 
     @EventHandler
     public void selectBanReason(InventoryClickEvent e) {
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.DARK_RED + "Ban Player Selector")) {
+        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.DARK_RED + "BanIP Player Selector")) {
             Player p = (Player) e.getWhoClicked();
             if (Objects.requireNonNull(e.getCurrentItem()).getType() == Material.PLAYER_HEAD) {
                 t = p.getServer().getPlayerExact(ChatColor.stripColor(Objects.requireNonNull(Objects.requireNonNull(e.getCurrentItem()).getItemMeta()).getDisplayName()));
@@ -196,96 +195,96 @@ public class BanEvent implements Listener {
             switch (Objects.requireNonNull(e.getCurrentItem()).getType()) {
                 case DIRT:
                     banTime = new Date(System.currentTimeMillis() + 900000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado por " + banReason, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado por " + banReason, banTime, null);
                     t.kickPlayer("Fuiste Baneado por " + banReason);
                     p.closeInventory();
                     break;
 
                 case GRASS_BLOCK:
                     banTime = new Date(System.currentTimeMillis() + 1800000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case STONE:
                     banTime = new Date(System.currentTimeMillis() + 3600000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case OAK_WOOD:
                     banTime = new Date(System.currentTimeMillis() + 7200000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case COAL_ORE:
                     banTime = new Date(System.currentTimeMillis() + 21600000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case IRON_ORE:
                     banTime = new Date(System.currentTimeMillis() + 43200000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case GOLD_ORE:
                     banTime = new Date(System.currentTimeMillis() + 86400000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case DIAMOND_ORE:
                     banTime = new Date(System.currentTimeMillis() + 172800000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case COAL_BLOCK:
                     banTime = new Date(System.currentTimeMillis() + 432000000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case IRON_BLOCK:
                     banTime = new Date(System.currentTimeMillis() + 864000000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case GOLD_BLOCK:
                     banTime = new Date(System.currentTimeMillis() + 1296000000);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado hasta el " + banTime, banTime, null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                /*case DIAMOND_BLOCK:
                     banTime = new Date(System.currentTimeMillis() + (1296000000 * 2));
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(),"Fuiste Baneado hasta el " + banTime,banTime,null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(),"Fuiste Baneado hasta el " + banTime,banTime,null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     p.closeInventory();
                     break;
 
                 case NETHERITE_BLOCK:
                     banTime = new Date(System.currentTimeMillis() + 500 * 60 * 60 * 60 * 24);
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(),"Fuiste Baneado hasta el " + banTime,banTime,null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(),"Fuiste Baneado hasta el " + banTime,banTime,null);
                     t.kickPlayer("Fuiste Baneado hasta el " + banTime);
                     break;*/
 
                 case BARRIER:
-                    t.getServer().getBanList(BanList.Type.NAME).addBan(t.getName(), "Fuiste Baneado permanentemente ", null, null);
+                    t.getServer().getBanList(BanList.Type.IP).addBan(t.getName(), "Fuiste Baneado permanentemente ", null, null);
                     t.kickPlayer("Fuiste Baneado permanenetemente");
                     break;
             }
